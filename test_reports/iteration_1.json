@@ -1,0 +1,33 @@
+{
+  "summary": "First-run comprehensive backend + frontend testing of Ranking de Vendas (pt-BR). Backend: 18/18 pytest tests passing covering auth, public (no value field leak), full admin CRUD flows (rankings, sellers, bulk, reorder, delete-with-position-recompaction, set-active, logo upload with invalid/valid formats, file serving). Frontend: public page renders correctly with gold/blue/white podium, title 'RANKING DE OUTUBRO', seed photos, bottom-right admin lock button. Login modal works (wrong -> stays; correct -> opens admin drawer). Admin panel: toggle numbers switch works, all 3 tabs (Vendedores/Rankings/Logo) switch properly, add seller shows success toast 'Vendedor adicionado', bulk textarea exists, logout returns to public mode. Test data created was cleaned up; seed intact.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": []
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "server.py: using deprecated @app.on_event('startup'/'shutdown') -- FastAPI recommends lifespan handlers.",
+    "server.py seed inserts photo_url field but Seller.model_dump also keeps photo_path=None; this is fine but photo seed uses external unsplash URLs which may hotlink-fail in some networks.",
+    "Backend uses JWT with 7-day exp but no refresh/revocation; acceptable for single-admin MVP but note no brute-force lockout (playbook mentions 5-fail lockout - not implemented, however this is token/password-only, not full user auth).",
+    "init_storage() is synchronous (requests) in async FastAPI startup; blocks event loop briefly on startup and on first upload. Minor.",
+    "No pagination on list_sellers (to_list(2000)) and list_rankings (500) - acceptable for the stated 49+ reps scale."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_api.py"
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "Admin password: admin123 (from /app/memory/test_credentials.md)",
+  "seed_data_creation": "No new seed; verified existing 'Ranking de Outubro' with 12 sellers (top 3 w/ unsplash photos). Test-created rankings/sellers/UI entries all deleted post-run.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend fully covered by /app/backend/tests/test_api.py (pytest, 18 tests, all PASS). Public endpoint confirmed to never return 'value' field. Admin endpoints return 401 without Bearer token. Frontend testids used: admin-nivelinha-button, admin-login-modal, admin-password-input, admin-login-submit, admin-panel-drawer, admin-editing-title, admin-toggle-numbers-switch, admin-tab-sellers|rankings|brand, admin-new-seller-name, admin-add-rep-button, admin-bulk-textarea, admin-logout-button, podium-{1st|2nd|3rd}-place (on motion.div, may need extra wait after ranking-page selector before querying). Note: wrong-password error toast was shown by sonner but query selector '[data-sonner-toast]' did not reliably catch it in time; the 401 is confirmed in console. On the public page, title appears after data loads from polling (initial 'CARREGANDO...' state)."
+}
