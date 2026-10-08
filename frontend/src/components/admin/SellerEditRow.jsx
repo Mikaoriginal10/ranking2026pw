@@ -61,9 +61,10 @@ export const SellerEditRow = ({ seller, position, total, dragging, onDragStart, 
       onDragStart={onDragStart}
       onDragOver={onDragOver}
       onDragEnd={onDragEnd}
-      className={`flex items-center gap-2 rounded-lg border ${accent} bg-white/[0.03] p-2 transition-opacity ${dragging ? "opacity-40" : ""}`}
+      className={`flex flex-col sm:flex-row sm:items-center gap-2 rounded-lg border ${accent} bg-white/[0.03] p-2 transition-opacity ${dragging ? "opacity-40" : ""}`}
       data-testid={`admin-seller-row-${tid}`}
     >
+      <div className="flex items-center gap-2 flex-1 min-w-0">
       <GripVertical className="w-4 h-4 text-zinc-600 cursor-grab shrink-0" />
       <input
         value={pos}
@@ -93,6 +94,8 @@ export const SellerEditRow = ({ seller, position, total, dragging, onDragStart, 
         className="h-9 bg-transparent border-white/10 flex-1 min-w-0"
         data-testid={`admin-seller-name-${tid}`}
       />
+      </div>
+      <div className="flex items-center gap-2 justify-end">
       <Input
         value={value}
         type="number"
@@ -111,6 +114,7 @@ export const SellerEditRow = ({ seller, position, total, dragging, onDragStart, 
       <button type="button" onClick={remove} className="p-1 text-zinc-500 hover:text-red-400" data-testid={`admin-seller-delete-${tid}`}>
         <Trash2 className="w-4 h-4" />
       </button>
+      </div>
     </li>
   );
 };

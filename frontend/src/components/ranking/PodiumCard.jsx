@@ -5,9 +5,9 @@ import { MarqueeBulbs } from "./MarqueeBulbs";
 import { formatValue, initials } from "./format";
 
 const THEME = {
-  1: { key: "gold", label: "1º", word: "Primeiro lugar", testid: "1st", width: "max-w-[340px]", delay: 0.3 },
-  2: { key: "blue", label: "2º", word: "Segundo lugar", testid: "2nd", width: "max-w-[270px]", delay: 0.5 },
-  3: { key: "white", label: "3º", word: "Terceiro lugar", testid: "3rd", width: "max-w-[270px]", delay: 0.7 },
+  1: { key: "gold", label: "1º", word: "Primeiro lugar", testid: "1st", width: "max-w-[230px] sm:max-w-[300px] md:max-w-[340px]", delay: 0.3 },
+  2: { key: "blue", label: "2º", word: "Segundo lugar", testid: "2nd", width: "max-w-[165px] sm:max-w-[230px] md:max-w-[270px]", delay: 0.5 },
+  3: { key: "white", label: "3º", word: "Terceiro lugar", testid: "3rd", width: "max-w-[165px] sm:max-w-[230px] md:max-w-[270px]", delay: 0.7 },
 };
 
 export const PodiumCard = ({ seller, place, showNumbers }) => {
@@ -49,7 +49,7 @@ export const PodiumCard = ({ seller, place, showNumbers }) => {
 
       <div className="mt-10 text-center">
         <p className="rk-mono text-[10px] uppercase tracking-[0.35em] text-zinc-500">{t.word}</p>
-        <h3 className={`rk-display mt-2 font-bold text-zinc-50 ${place === 1 ? "text-2xl sm:text-3xl" : "text-xl sm:text-2xl"}`} data-testid={`podium-name-${t.testid}`}>
+        <h3 className={`rk-display mt-2 font-bold text-zinc-50 ${place === 1 ? "text-2xl sm:text-3xl" : "text-base sm:text-2xl"}`} data-testid={`podium-name-${t.testid}`}>
           {seller.name}
         </h3>
         {seller.subtitle && <p className="text-sm text-zinc-400 mt-1">{seller.subtitle}</p>}

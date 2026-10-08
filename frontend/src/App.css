@@ -132,6 +132,13 @@ body {
 .rk-btn-gold { background: linear-gradient(135deg, #facc15, #d97706); color: #0a0a0a; font-weight: 700; transition: transform 0.2s ease, filter 0.2s ease; }
 .rk-btn-gold:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
+@media (max-width: 767px) {
+  .rk-badge { font-size: 1.15rem; min-width: 52px; height: 40px; }
+  .rk-initials { font-size: 2.5rem; }
+  .rk-bulb { width: 5px; height: 5px; }
+  .rk-frame-inner { inset: 10px !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .rk-rays, .rk-title { animation: none; }
 }
