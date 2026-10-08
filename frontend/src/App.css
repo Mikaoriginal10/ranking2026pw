@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+
+:root {
+  --rk-bg: #07080c;
+  --gold: 234, 179, 8;
+  --blue: 59, 130, 246;
+  --white: 248, 250, 252;
+}
+
+body {
+  background: var(--rk-bg);
+  font-family: "Manrope", sans-serif;
+}
+
+::selection { background: rgba(var(--gold), 0.35); color: #fff; }
+
+.rk-display { font-family: "Bricolage Grotesque", sans-serif; }
+.rk-mono { font-family: "JetBrains Mono", monospace; }
+
+.rk-stage {
+  background:
+    radial-gradient(ellipse 70% 45% at 50% 0%, rgba(var(--gold), 0.10), transparent 70%),
+    radial-gradient(ellipse 40% 40% at 15% 55%, rgba(var(--blue), 0.06), transparent 70%),
+    var(--rk-bg);
+  color: #f4f4f5;
+}
+
+.rk-noise {
+  position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.rk-title {
+  font-family: "Bricolage Grotesque", sans-serif;
+  background: linear-gradient(100deg, #fde68a 0%, #facc15 30%, #fff7d6 50%, #eab308 70%, #fde68a 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: rk-shine 6s linear infinite;
+}
+@keyframes rk-shine { to { background-position: 200% center; } }
+
+.rk-live-dot { width: 8px; height: 8px; border-radius: 50%; background: #ef4444; box-shadow: 0 0 10px #ef4444; animation: rk-blink 1.4s ease-in-out infinite; }
+@keyframes rk-blink { 50% { opacity: 0.2; } }
+
+/* Podium themes */
+.rk-gold { --c: var(--gold); --frame: linear-gradient(145deg, #fde68a, #b45309 45%, #facc15 70%, #92400e); }
+.rk-blue { --c: var(--blue); --frame: linear-gradient(145deg, #93c5fd, #1d4ed8 45%, #60a5fa 70%, #1e3a8a); }
+.rk-white { --c: var(--white); --frame: linear-gradient(145deg, #ffffff, #94a3b8 45%, #f1f5f9 70%, #64748b); }
+
+.rk-place-icon { color: rgb(var(--c)); filter: drop-shadow(0 0 14px rgba(var(--c), 0.8)); animation: rk-float 3s ease-in-out infinite; }
+@keyframes rk-float { 50% { transform: translateY(-6px); } }
+
+.rk-backlight {
+  position: absolute; inset: -18% -30%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--c), 0.55) 0%, rgba(var(--c), 0.18) 40%, transparent 70%);
+  filter: blur(30px);
+  animation: rk-pulse 1.6s ease-in-out infinite;
+}
+.rk-gold .rk-backlight { animation-duration: 1.2s; }
+@keyframes rk-pulse {
+  0%, 100% { opacity: 0.35; transform: scale(0.92); }
+  50% { opacity: 1; transform: scale(1.06); }
+}
+
+.rk-rays {
+  position: absolute; left: 50%; top: 50%; width: 170%; aspect-ratio: 1; transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(from 0deg, rgba(var(--c), 0.16) 0deg 6deg, transparent 6deg 22deg);
+  -webkit-mask: radial-gradient(circle, #000 20%, transparent 68%); mask: radial-gradient(circle, #000 20%, transparent 68%);
+  animation: rk-spin 22s linear infinite;
+  pointer-events: none;
+}
+@keyframes rk-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.rk-frame {
+  background: var(--frame);
+  border-radius: 12px;
+  padding: 0;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.15) inset, 0 0 60px rgba(var(--c), 0.45), 0 30px 60px rgba(0,0,0,0.6);
+  animation: rk-frame-glow 1.6s ease-in-out infinite;
+}
+.rk-gold .rk-frame { animation-duration: 1.2s; }
+@keyframes rk-frame-glow {
+  50% { box-shadow: 0 0 0 1px rgba(255,255,255,0.25) inset, 0 0 110px rgba(var(--c), 0.85), 0 30px 60px rgba(0,0,0,0.6); }
+}
+.rk-frame-inner { background: #0b0c12; box-shadow: 0 0 0 3px rgba(0,0,0,0.6), inset 0 0 30px rgba(0,0,0,0.7); }
+
+.rk-initials {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 4rem;
+  color: rgba(var(--c), 0.9);
+  background: radial-gradient(circle at 50% 35%, rgba(var(--c), 0.18), #0b0c12 70%);
+}
+
+.rk-bulb {
+  position: absolute; width: 7px; height: 7px; border-radius: 50%; transform: translate(-50%, -50%);
+  background: #fff; box-shadow: 0 0 6px 2px rgba(var(--c), 1), 0 0 14px 4px rgba(var(--c), 0.6);
+  animation: rk-bulb 0.9s steps(1, end) infinite;
+}
+.rk-bulb-b { animation-delay: 0.45s; }
+@keyframes rk-bulb {
+  0% { opacity: 1; }
+  50% { opacity: 0.15; box-shadow: none; }
+}
+
+.rk-badge {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 1.5rem;
+  min-width: 64px; height: 48px; padding: 0 16px; border-radius: 999px;
+  display: flex; align-items: center; justify-content: center; z-index: 30;
+  background: var(--frame); color: #0a0a0a;
+  box-shadow: 0 0 25px rgba(var(--c), 0.8), 0 0 0 3px #07080c;
+}
+.rk-blue .rk-badge { color: #fff; }
+
+/* List */
+.rk-row {
+  background: rgba(18, 20, 29, 0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(14px);
+  transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.rk-row:hover { background: rgba(28, 30, 42, 0.8); border-color: rgba(var(--gold), 0.3); transform: translateX(4px); }
+.rk-rank-num { color: transparent; -webkit-text-stroke: 1px rgba(var(--gold), 0.7); transition: color 0.25s ease; }
+.rk-row:hover .rk-rank-num { color: rgba(var(--gold), 0.9); }
+
+/* Admin */
+.rk-fab {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: rgba(255,255,255,0.35);
+  backdrop-filter: blur(12px);
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.rk-fab:hover { color: #facc15; background: rgba(255,255,255,0.1); transform: rotate(-12deg) scale(1.08); }
+
+.rk-btn-gold { background: linear-gradient(135deg, #facc15, #d97706); color: #0a0a0a; font-weight: 700; transition: transform 0.2s ease, filter 0.2s ease; }
+.rk-btn-gold:hover { filter: brightness(1.1); transform: translateY(-1px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .rk-rays, .rk-title { animation: none; }
+}

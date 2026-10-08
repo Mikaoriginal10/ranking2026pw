@@ -1,0 +1,106 @@
+{
+  "project_title": "Ranking de Vendas Dinâmico - Ranking de Outubro",
+  "archetype": "THE PERFORMANCE PRO & LUXURY STAGE",
+  "language": "pt-BR",
+  "theme": "Dark Cinematic TV & Modern Dashboard",
+  "typography": {
+    "font_family_heading": "Cabinet Grotesk, Outfit, sans-serif",
+    "font_family_body": "Inter, system-ui, sans-serif",
+    "font_family_mono": "JetBrains Mono, monospace",
+    "hierarchy": {
+      "title_main": "text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight uppercase text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-400 to-amber-500",
+      "subtitle": "text-lg sm:text-xl font-medium tracking-wide text-zinc-400 uppercase",
+      "section_heading": "text-2xl sm:text-3xl font-bold tracking-tight text-zinc-100",
+      "card_title": "text-lg sm:text-xl font-semibold text-zinc-100",
+      "body": "text-base text-zinc-300",
+      "caption": "text-xs font-mono uppercase tracking-widest text-zinc-500"
+    }
+  },
+  "colors": {
+    "background_main": "#090A0F",
+    "background_card": "#12141D",
+    "background_glass": "rgba(18, 20, 29, 0.75)",
+    "border_subtle": "rgba(255, 255, 255, 0.08)",
+    "border_accent": "rgba(234, 179, 8, 0.3)",
+    "text_primary": "#F4F4F5",
+    "text_secondary": "#A1A1AA",
+    "text_muted": "#71717A",
+    "podium_glows": {
+      "first_place_gold": {
+        "color": "#EAB308",
+        "glow_css": "shadow-[0_0_50px_rgba(234,179,8,0.55)] border-yellow-400/80 animate-pulse",
+        "badge_bg": "bg-gradient-to-r from-yellow-500 via-amber-400 to-yellow-600 text-zinc-950 font-black",
+        "light_effect": "radial-gradient(circle, rgba(234,179,8,0.4) 0%, rgba(234,179,8,0) 70%)"
+      },
+      "second_place_blue": {
+        "color": "#3B82F6",
+        "glow_css": "shadow-[0_0_50px_rgba(59,130,246,0.55)] border-blue-400/80 animate-pulse",
+        "badge_bg": "bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-500 text-white font-black",
+        "light_effect": "radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(59,130,246,0) 70%)"
+      },
+      "third_place_white": {
+        "color": "#F8FAFC",
+        "glow_css": "shadow-[0_0_50px_rgba(248,250,252,0.5)] border-slate-200/80 animate-pulse",
+        "badge_bg": "bg-gradient-to-r from-slate-300 via-zinc-100 to-slate-400 text-zinc-950 font-black",
+        "light_effect": "radial-gradient(circle, rgba(248,250,252,0.35) 0%, rgba(248,250,252,0) 70%)"
+      }
+    }
+  },
+  "visual_enhancers": {
+    "podium_frame_aspect_ratio": "vertical rectangular portrait (2:1 or 3:4 ratio, roughly 6cm x 3cm scaled, max-height 320px)",
+    "glassmorphism": "backdrop-blur-xl bg-zinc-900/60 border border-white/10 shadow-2xl",
+    "podium_backlights": "pulsing backlighting glow behind top 3 seller portraits: 1st Gold, 2nd Blue, 3rd White/Silver",
+    "discreet_admin_trigger": "Discrete 'nivelinha' floating trigger at bottom-right corner (small icon, low-opacity, reveals admin authentication modal)",
+    "tv_display_mode": "Auto-scrolling or clean multi-column layout optimized for big screens & TVs with 10s auto-refresh sync"
+  },
+  "key_components_structure": [
+    {
+      "name": "Header & Brand Logo Slot",
+      "description": "Top section featuring a massive customizable brand logo container, live indicator, title edit display ('Ranking de Outubro'), and month switcher dropdown for archive viewing.",
+      "test_ids": ["main-header", "brand-logo-container", "ranking-title-heading", "month-select-dropdown"]
+    },
+    {
+      "name": "Top 3 Podium Showcase",
+      "description": "Central hero section with vertical rectangular portrait frames for 1st (Gold), 2nd (Blue), and 3rd (White) place reps with animated pulsating backlights, crowns/badges, rep names, and optional metric numbers.",
+      "test_ids": ["podium-container", "podium-1st-place", "podium-2nd-place", "podium-3rd-place", "podium-photo-1st", "podium-photo-2nd", "podium-photo-3rd"]
+    },
+    {
+      "name": "Sequential Sellers List (4th Place Onward)",
+      "description": "Grid or double-column list of all remaining representatives (up to 49+), showing position rank, photo avatar, name, region/unit, and conditional stats.",
+      "test_ids": ["sellers-list-container", "seller-row-item", "seller-rank-number", "seller-avatar-img", "seller-name"]
+    },
+    {
+      "name": "Discreet Admin Access Button ('Nivelinha')",
+      "description": "Subtle, semi-transparent icon button in the bottom-right corner that triggers the Admin Password Modal.",
+      "test_ids": ["admin-nivelinha-button", "admin-login-modal", "admin-password-input", "admin-login-submit"]
+    },
+    {
+      "name": "Admin Control Panel Modal / View",
+      "description": "Full management dashboard for admins to: set active month, edit ranking title, toggle visibility of numbers/stats, drag-and-drop or manually set seller positions, add/edit/delete reps with custom photo uploads, and update brand logo.",
+      "test_ids": ["admin-panel-drawer", "admin-toggle-numbers-switch", "admin-logo-upload-input", "admin-add-rep-button", "admin-reorder-list", "admin-save-positions-button"]
+    }
+  ],
+  "image_urls": {
+    "brand_logo_placeholder": "https://images.unsplash.com/photo-1760537826554-b8701b24ba30?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBsdXh1cnklMjBsb2dvJTIwZGVzaWduJTIwbWluaW1hbHxlbnwwfHx8fDE3OTE0NjM2MTJ8MA&ixlib=rb-4.1.0&q=85",
+    "top_seller_1": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHxfHxffDE3OTE0NjM2MDR8MA&ixlib=rb-4.1.0&q=85",
+    "top_seller_2": "https://images.unsplash.com/photo-1573497161161-c3e73707e25c?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHw0fHxidXNpbmVzcyUyMHdvbWFuJTIwcG9ydHJhaXQlMjB2ZXJ0aWNhbHxlbnwwfHx8fDE3OTE0NjM2MTJ8MA&ixlib=rb-4.1.0&q=85",
+    "top_seller_3": "https://images.unsplash.com/photo-1613496701765-97267d26e3df?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHw0fHxjb3Jwb3JhdGUlMjBleGVjdXRpdmUlMjBwb3J0cmFpdCUyMHBvcnRyYWl0JTIwdmVydGljYWx8ZW58MHx8fHwxNzkxNDYzNjA0fDA&ixlib=rb-4.1.0&q=85",
+    "seller_avatars": [
+      "https://images.unsplash.com/photo-1685375421073-4dae366f8e84?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwyfHxjb3Jwb3JhdGUlMjBleGVjdXRpdmUlMjBwb3J0cmFpdCUyMHBvcnRyYWl0JTIwdmVydGljYWx8ZW58MHx8fHwxNzkxNDYzNjA0fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHxffDE3OTE0NjM2MTJ8MA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1648448942225-7aa06c7e8f79?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NjZ8MHwxfHNlYXJjaHwzfHxjb3Jwb3JhdGUlMjBleGVjdXRpdmUlMjBwb3J0cmFpdCUyMHBvcnRyYWl0JTIwdmVydGljYWx8ZW58MHx8fHwxNzkxNDYzNjA0fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1585240975858-7264fd020798?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwyfHxidXNpbmVzcyUyMHdvbWFuJTIwcG9ydHJhaXQlMjB2ZXJ0aWNhbHxlbnwwfHx8fDE3OTE0NjM2MTJ8MA&ixlib=rb-4.1.0&q=85"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure all text is in Portuguese (pt-BR) as specified by the user prompt (e.g., 'Ranking de Outubro', 'Representante', 'Entrar como Administrador', 'Visibilidade de Valores').",
+    "The podium for top 3 must prominently feature high vertical rectangular portrait frames (2:1 / 3:4 aspect ratio) to resemble physical framed portraits.",
+    "Implement the animated pulsing backlight effects strictly per requirements: Gold for 1st, Electric Blue for 2nd, Crisp White/Silver for 3rd.",
+    "Include a huge logo spot at the top of the site with upload/change capability in the admin panel.",
+    "Place a discrete 'nivelinha' floating action button at the bottom-right for admin authentication.",
+    "The default view displays ONLY positions (1º, 2º, 3º, 4º...). Sales numbers/metrics are hidden by default and only visible to Admin when toggled ON in the admin panel.",
+    "Ensure seamless auto-refresh polling so TV displays reflect live admin reorders instantly.",
+    "Include mock data with up to 49 default representatives, allowing the user to add/edit/reorder as many as desired.",
+    "Every interactive element and key text node MUST include data-testid attributes."
+  ]
+}
